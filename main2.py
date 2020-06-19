@@ -16,11 +16,13 @@ dict['a']()
 dict['b']()
 dict['c']()
 
+
 class A:
     def __init__(self, b):
-        self.b=b
+        self.b = b
 
-c=A(1)
+
+c = A(1)
 
 setattr(c, "b", 10)
 
