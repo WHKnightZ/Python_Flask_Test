@@ -4,17 +4,37 @@
 <head>
     <script type="text/javascript">
         const func = async () => {
-            const response = await fetch("http://localhost:5000/api/users");
+            const response = await fetch("http://localhost:5000/api/users", {
+                method: 'GET',
+                mode: 'no-cors'
+            });
 
             if (!response.ok) {
                 throw new Error('Error');
             }
 
             const resData = await response.json();
-            document.getElementById("myDiv").innerText=resData[0];
+            document.getElementById("myDiv").innerText = resData[0];
             console.log(resData);
         }
         func();
+    </script>
+
+    <!-- <script>
+        function httpGetAsync(theUrl, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp);
+            }
+            xmlHttp.open("GET", theUrl, true);
+            xmlHttp.send(null);
+        }
+
+        httpGetAsync("http://127.0.0.1:5000/api/user", function (response) {
+            console.log(response);
+            // document.getElementById("myDiv").innerText = response[0];
+        }); -->
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
