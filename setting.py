@@ -1,9 +1,9 @@
 class DevConfig:
-    ENV = 'development'
-    DEBUG = True
-    DEBUG_TB_ENABLED = True  # Disable Debug toolbar
-    HOST = '0.0.0.0'
-    TEMPLATES_AUTO_RELOAD = True
+    # ENV = 'development'
+    # DEBUG = True
+    # DEBUG_TB_ENABLED = True  # Disable Debug toolbar
+    # HOST = '0.0.0.0'
+    # TEMPLATES_AUTO_RELOAD = True
     # JWT Config
     JWT_SECRET_KEY = 'Khanh'
     JWT_BLACKLIST_ENABLED = True

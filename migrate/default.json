@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "a74dd5a8-9369-11ea-afb4-00e04d380507",
+      "username": "Khanh",
+      "password": "123456"
+    },
+    {
+      "id": "b74dd5a8-9369-11ec-afb4-00e04d380507",
+      "username": "Khanh1",
+      "password": "123456"
+    },
+    {
+      "id": "c74dd5a8-9369-11eb-afb4-00e04d380507",
+      "username": "Khanh2",
+      "password": "123456"
+    }
+  ]
+}
