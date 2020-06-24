@@ -24,8 +24,6 @@ def register_extensions(app):
 def register_blueprints(app):
     app.register_blueprint(api.auth.api, url_prefix="/api/auth")
     app.register_blueprint(api.users.api, url_prefix="/api/users")
-
-
-@jwt.token_in_blacklist_loader
-def check_if_token_is_revoked(decrypted_token):
-    return False
+    app.register_blueprint(api.posts.api, url_prefix="/api/posts")
+    app.register_blueprint(api.user_posts.api, url_prefix="/api")
+    app.register_blueprint(api.utils.api, url_prefix="/api/utils")

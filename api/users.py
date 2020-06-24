@@ -3,7 +3,8 @@ import uuid
 from flask import Blueprint, request
 
 from extensions import db
-from models.user import User
+from models import User
+from permission import security
 from schema.schema_model import user_schema, users_schema
 
 from flask_jwt_extended import (

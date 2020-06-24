@@ -1,9 +1,10 @@
 import json
 from app.app import create_app
 from extensions import db
-from models import User
+from models import User, Post
 
 from setting import DevConfig
+
 
 class MigrateDatabase:
     def __init__(self):
@@ -25,7 +26,18 @@ class MigrateDatabase:
 
         db.session.commit()
 
+    def create_default_posts(self):
+        posts = self.default_data.get('posts', {})
+        for item in posts:
+            instance = Post()
+            for key in item.keys():
+                instance.__setattr__(key, item[key])
+            db.session.add(instance)
+
+        db.session.commit()
+
 
 if __name__ == '__main__':
     worker = MigrateDatabase()
     worker.create_default_users()
+    worker.create_default_posts()
