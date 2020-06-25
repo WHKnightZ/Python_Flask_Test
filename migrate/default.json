@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "a74dd5a8-9369-11ea-afb4-00e04d380507",
+      "username": "Khanh",
+      "password": "123456"
+    },
+    {
+      "id": "b74dd5a8-9369-11ec-afb4-00e04d380507",
+      "username": "Khanh1",
+      "password": "123456"
+    },
+    {
+      "id": "c74dd5a8-9369-11eb-afb4-00e04d380507",
+      "username": "Khanh2",
+      "password": "123456"
+    }
+  ],
+  "posts": [
+    {
+      "id": "a14dd5a8-9369-11ea-afb4-00e04d380507",
+      "user_id": "a74dd5a8-9369-11ea-afb4-00e04d380507",
+      "content": "hello"
+    },
+    {
+      "id": "a24dd5a8-9369-11ea-afb4-00e04d380507",
+      "user_id": "a74dd5a8-9369-11ea-afb4-00e04d380507",
+      "content": "hello2"
+    },
+    {
+      "id": "a34dd5a8-9369-11ea-afb4-00e04d380507",
+      "user_id": "b74dd5a8-9369-11ec-afb4-00e04d380507",
+      "content": "hello3"
+    }
+  ]
+}
