@@ -1,8 +1,10 @@
+from apscheduler.triggers import interval
 from flask import Flask
 
 import api
 
-from extensions import db, jwt, ma
+from extensions import db, jwt, ma, scheduler
+from scheduler_task.revoke_token import remove_token_expiry
 
 from setting import DevConfig
 
@@ -10,15 +12,21 @@ from setting import DevConfig
 def create_app(config_object=DevConfig):
     app = Flask(__name__)
     app.config.from_object(config_object)
-    register_extensions(app)
+    register_extensions(app, config_object)
     register_blueprints(app)
     return app
 
 
-def register_extensions(app):
+def register_extensions(app, config_object):
+    db.app = app
     db.init_app(app)
     ma.init_app(app)
     jwt.init_app(app)
+
+    if config_object.ENV != 'test':
+        trigger = interval.IntervalTrigger(seconds=5)
+        scheduler.add_job(remove_token_expiry, trigger=trigger, id='remove_token_expiry', replace_existing=True)
+        scheduler.start()
 
 
 def register_blueprints(app):

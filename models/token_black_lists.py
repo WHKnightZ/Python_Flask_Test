@@ -1,6 +1,8 @@
 from flask_jwt_extended import decode_token
 
 from extensions import db
+from utils import get_datetime_now_s
+
 
 class TokenBlacklist(db.Model):
     __tablename__ = 'token_blacklist'
@@ -70,10 +72,10 @@ class TokenBlacklist(db.Model):
         except Exception:
             return {"message": "Could not find the token"}
 
-    # @staticmethod
-    # def prune_database():
-    #     now_in_seconds = get_datetime_now_s()
-    #     expired = TokenBlacklist.query.filter(TokenBlacklist.expires < now_in_seconds).all()
-    #     for token in expired:
-    #         db.session.delete(token)
-    #     db.session.commit()
+    @staticmethod
+    def prune_database():
+        now_in_seconds = get_datetime_now_s()
+        expired = TokenBlacklist.query.filter(TokenBlacklist.expires < now_in_seconds).all()
+        for token in expired:
+            db.session.delete(token)
+        db.session.commit()

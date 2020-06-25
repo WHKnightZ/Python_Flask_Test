@@ -7,15 +7,16 @@ from extensions import jwt
 from flask_jwt_extended import (
     jwt_required, create_access_token,
     jwt_refresh_token_required, get_jwt_identity,
-    create_refresh_token, get_raw_jwt
+    create_refresh_token, get_raw_jwt, decode_token
 )
 
 from schema.schema_model import user_schema
+from utils import get_datetime_now_s
 
 api = Blueprint("auth", __name__)
 
-ACCESS_EXPIRES = timedelta(days=30)
-REFRESH_EXPIRES = timedelta(days=90)
+ACCESS_EXPIRES = timedelta(seconds=1)
+REFRESH_EXPIRES = timedelta(seconds=1)
 
 
 @api.route('login', methods=['POST'])
@@ -31,6 +32,9 @@ def login():
     if user and user.password == password:
         access_token = create_access_token(identity=user.id, expires_delta=ACCESS_EXPIRES)
         refresh_token = create_refresh_token(identity=user.id, expires_delta=REFRESH_EXPIRES)
+        print(get_datetime_now_s())
+        decoded_token = decode_token(access_token)
+        print(decoded_token['exp'])
         TokenBlacklist.add_token_to_database(access_token, user.id)
         TokenBlacklist.add_token_to_database(refresh_token, user.id)
         return {"access_token": access_token, "refresh_token": refresh_token, "user": user_schema.dump(user)}
