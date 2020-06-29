@@ -17,7 +17,7 @@ api = Blueprint("users", __name__)
 
 
 @api.route('', methods=['GET'])
-@jwt_required
+# @jwt_required
 def get_all_users():
     user = User.get_all()
     user = users_schema.dump(user)
