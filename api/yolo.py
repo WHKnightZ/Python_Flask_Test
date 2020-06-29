@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 import base64
 
+print("yolo1")
+
 def init_yolo():
     net = cv2.dnn.readNet('api/yolov3.weights', "api/yolov3.cfg")
     with open("api/coco.names", "r") as f:
@@ -14,7 +16,7 @@ def init_yolo():
 
 net, classes, output_layers, colors = init_yolo()
 
-print("1")
+print("yolo2")
 
 def predict_image(uri):
     encoded_data = uri.split(',')[1]

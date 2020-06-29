@@ -5,6 +5,8 @@ from flask_cors import CORS
 
 # from migrate.default import create_db
 
+print("main__main")
+
 app = create_app(ProdConfig)
 CORS(app)
 
