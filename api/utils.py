@@ -3,7 +3,7 @@ import uuid
 
 from googletrans import Translator
 
-from api.yolo import predict_image
+# from api.yolo import predict_image
 
 api = Blueprint("utils", __name__)
 

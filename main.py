@@ -1,12 +1,12 @@
 from app.app import create_app
 
 from setting import ProdConfig
-# from flask_cors import CORS
+from flask_cors import CORS
 
 # from migrate.default import create_db
 
 app = create_app(ProdConfig)
-# CORS(app)
+CORS(app)
 
 # @app.before_first_request
 # def db_init():
