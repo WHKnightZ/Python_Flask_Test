@@ -23,10 +23,10 @@ def register_extensions(app, config_object):
     ma.init_app(app)
     jwt.init_app(app)
 
-    if config_object.ENV != 'test':
-        trigger = interval.IntervalTrigger(seconds=5)
-        scheduler.add_job(remove_token_expiry, trigger=trigger, id='remove_token_expiry', replace_existing=True)
-        scheduler.start()
+    # if config_object.ENV != 'test':
+    #     trigger = interval.IntervalTrigger(seconds=5)
+    #     scheduler.add_job(remove_token_expiry, trigger=trigger, id='remove_token_expiry', replace_existing=True)
+    #     scheduler.start()
 
 
 def register_blueprints(app):

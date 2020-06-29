@@ -3,17 +3,17 @@ from app.app import create_app
 from extensions import db
 from models import User, Post
 
-from setting import DevConfig
+from setting import ProdConfig
 
 
 class MigrateDatabase:
     def __init__(self):
-        app = create_app(config_object=DevConfig)
+        app = create_app(config_object=ProdConfig)
         app_context = app.app_context()
         app_context.push()
         db.drop_all()  # drop all tables
         db.create_all()  # create a new schema
-        with open('default.json') as file:
+        with open('migrate/default.json') as file:
             self.default_data = json.load(file)
 
     def create_default_users(self):
@@ -37,7 +37,6 @@ class MigrateDatabase:
         db.session.commit()
 
 
-if __name__ == '__main__':
-    worker = MigrateDatabase()
-    worker.create_default_users()
-    worker.create_default_posts()
+worker = MigrateDatabase()
+worker.create_default_users()
+worker.create_default_posts()
