@@ -48,7 +48,7 @@ def create_user():
     if user:
         return {"message": "Username is existed"}
     else:
-        _id = uuid.uuid1()
+        _id = str(uuid.uuid1())
         user = User(id=_id, username=username, password=password)
         db.session.add(user)
         db.session.commit()

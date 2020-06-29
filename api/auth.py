@@ -32,9 +32,9 @@ def login():
     if user and user.password == password:
         access_token = create_access_token(identity=user.id, expires_delta=ACCESS_EXPIRES)
         refresh_token = create_refresh_token(identity=user.id, expires_delta=REFRESH_EXPIRES)
-        print(get_datetime_now_s())
-        decoded_token = decode_token(access_token)
-        print(decoded_token['exp'])
+        # print(get_datetime_now_s())
+        # decoded_token = decode_token(access_token)
+        # print(decoded_token['exp'])
         TokenBlacklist.add_token_to_database(access_token, user.id)
         TokenBlacklist.add_token_to_database(refresh_token, user.id)
         return {"access_token": access_token, "refresh_token": refresh_token, "user": user_schema.dump(user)}
