@@ -13,7 +13,7 @@ class MigrateDatabase:
         app_context.push()
         db.drop_all()  # drop all tables
         db.create_all()  # create a new schema
-        with open('migrate/default.json') as file:
+        with open('default.json') as file:
             self.default_data = json.load(file)
 
     def create_default_users(self):
@@ -36,7 +36,8 @@ class MigrateDatabase:
 
         db.session.commit()
 
-def create_db():
+
+if __name__ == "__main__":
     worker = MigrateDatabase()
     worker.create_default_users()
     worker.create_default_posts()

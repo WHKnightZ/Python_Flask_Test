@@ -2,14 +2,14 @@ from app.app import create_app
 
 from setting import ProdConfig
 
-from migrate.default import create_db
+# from migrate.default import create_db
 
 app = create_app(ProdConfig)
 
 
-@app.before_first_request
-def db_init():
-    create_db()
+# @app.before_first_request
+# def db_init():
+#     create_db()
 
 
 if __name__ == "__main__":

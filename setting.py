@@ -10,7 +10,8 @@ class ProdConfig:
     JWT_BLACKLIST_ENABLED = True
     JWT_BLACKLIST_TOKEN_CHECKS = ['access', 'refresh']
     # mysql
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///data.db'
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///data.db'
+    SQLALCHEMY_DATABASE_URI = 'mysql://b7a9071a44ee6b:bf59c3bd@us-cdbr-east-02.cleardb.com/heroku_3b0ce4b99ab6656'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SCHEDULER_API_ENABLED = False
 
