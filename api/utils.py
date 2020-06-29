@@ -3,7 +3,7 @@ import uuid
 
 from googletrans import Translator
 
-# from api.yolo import predict_image
+from api.yolo import predict_image
 
 api = Blueprint("utils", __name__)
 
@@ -170,9 +170,9 @@ def make_key(src):
 #     classes = model.predict_classes(my_predict)
 #     return {"predict": int(classes[0])}
 
-# @api.route('yolo', methods=['POST'])
-# def predict():
-#     data = request.get_json()
-#     data = data.get("image", None)
-#     data = predict_image(data)
-#     return {"predict": data.decode()}
+@api.route('yolo', methods=['POST'])
+def predict():
+    data = request.get_json()
+    data = data.get("image", None)
+    data = predict_image(data)
+    return {"predict": data.decode()}

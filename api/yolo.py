@@ -14,6 +14,8 @@ def init_yolo():
 
 net, classes, output_layers, colors = init_yolo()
 
+print("1")
+
 def predict_image(uri):
     encoded_data = uri.split(',')[1]
     nparr = np.frombuffer(base64.b64decode(encoded_data), np.uint8)
