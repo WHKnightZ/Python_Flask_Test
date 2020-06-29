@@ -1,10 +1,10 @@
-from apscheduler.triggers import interval
+# from apscheduler.triggers import interval
 from flask import Flask
 
 import api
 
 from extensions import db, jwt, ma, scheduler
-from scheduler_task.revoke_token import remove_token_expiry
+# from scheduler_task.revoke_token import remove_token_expiry
 
 from setting import DevConfig
 
