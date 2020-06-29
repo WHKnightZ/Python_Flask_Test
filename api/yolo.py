@@ -5,8 +5,8 @@ import base64
 print("yolo1")
 
 def init_yolo():
-    net = cv2.dnn.readNet('api/yolov3.weights', "api/yolov3.cfg")
-    with open("api/coco.names", "r") as f:
+    net = cv2.dnn.readNet('yolov3.weights', "yolov3.cfg")
+    with open("coco.names", "r") as f:
         classes = [line.strip() for line in f.readlines()]
     layer_names = net.getLayerNames()
     output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
