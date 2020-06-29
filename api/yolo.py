@@ -48,6 +48,10 @@ def predict_image(uri):
     indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.4, 0.6)
 
     font = cv2.FONT_HERSHEY_PLAIN
+
+    cv2.putText(img, 'WH.KnightZ', (30, 30), font, 1.8, (0, 0, 0), 2, cv2.LINE_AA)
+    cv2.putText(img, 'boot.AI', (30, 60), font, 1.8, (0, 0, 0), 2, cv2.LINE_AA)
+
     for i in range(len(boxes)):
         if i in indexes:
             x, y, w, h = boxes[i]
