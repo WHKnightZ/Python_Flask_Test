@@ -15,8 +15,8 @@ from utils import get_datetime_now_s
 
 api = Blueprint("auth", __name__)
 
-ACCESS_EXPIRES = timedelta(seconds=1)
-REFRESH_EXPIRES = timedelta(seconds=1)
+ACCESS_EXPIRES = timedelta(days=30)
+REFRESH_EXPIRES = timedelta(days=90)
 
 
 @api.route('login', methods=['POST'])
