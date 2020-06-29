@@ -36,7 +36,7 @@ class MigrateDatabase:
 
         db.session.commit()
 
-
-worker = MigrateDatabase()
-worker.create_default_users()
-worker.create_default_posts()
+def create_db():
+    worker = MigrateDatabase()
+    worker.create_default_users()
+    worker.create_default_posts()
