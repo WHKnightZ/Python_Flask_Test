@@ -39,5 +39,5 @@ class MigrateDatabase:
 
 if __name__ == "__main__":
     worker = MigrateDatabase()
-    worker.create_default_users()
-    worker.create_default_posts()
+    # worker.create_default_users()
+    # worker.create_default_posts()

@@ -5,6 +5,7 @@ import api
 
 from extensions import db, jwt, ma, scheduler
 # from scheduler_task.revoke_token import remove_token_expiry
+from models import User, Post
 
 from setting import DevConfig
 
@@ -22,6 +23,7 @@ def register_extensions(app, config_object):
     db.init_app(app)
     ma.init_app(app)
     jwt.init_app(app)
+    print(User.query.join(Post).all())
 
     # if config_object.ENV != 'test':
     #     trigger = interval.IntervalTrigger(seconds=5)

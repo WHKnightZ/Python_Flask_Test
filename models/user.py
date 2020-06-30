@@ -7,6 +7,7 @@ class User(db.Model):
     id = db.Column(db.String(50), primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(50), nullable=False)
+    # id_group = db.relationship('Group', primaryjoin='User.user_id == User.id', backref='posts')
 
     @staticmethod
     def get_all():

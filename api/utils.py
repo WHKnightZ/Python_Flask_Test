@@ -3,8 +3,6 @@ import uuid
 
 from googletrans import Translator
 
-from api.yolo import predict_image
-
 api = Blueprint("utils", __name__)
 
 translator = Translator()
@@ -147,7 +145,6 @@ def make_key(src):
     src += SECRET_KEY
     return {"encode": encode(src)}
 
-
 # import base64
 # from PIL import Image
 # import io
@@ -169,10 +166,3 @@ def make_key(src):
 #     my_predict = np.array([image])
 #     classes = model.predict_classes(my_predict)
 #     return {"predict": int(classes[0])}
-
-@api.route('yolo', methods=['POST'])
-def predict():
-    data = request.get_json()
-    data = data.get("image", None)
-    data = predict_image(data)
-    return {"predict": data.decode()}
