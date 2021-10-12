@@ -24,5 +24,5 @@ apscheduler==3.6.3
 googletrans
 pillow
 flask-cors
-opencv-python-headless==3.4.2.16
+opencv-python-headless==4.2.0.32
 uwsgi
